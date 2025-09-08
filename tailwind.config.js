@@ -7,24 +7,46 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'hsl(220 38.2% 40.6%)',
-        accent: 'hsl(204 100% 50%)',
-        background: 'hsl(220 15% 8%)',
-        surface: 'hsl(220 15% 12%)',
-        'surface-light': 'hsl(220 15% 16%)',
-        'text-primary': 'hsl(210 40% 98%)',
-        'text-secondary': 'hsl(215 20.2% 65.1%)',
-        border: 'hsl(220 13% 18%)',
-        success: 'hsl(142 76% 36%)',
-        warning: 'hsl(38 92% 50%)',
-        error: 'hsl(0 84% 60%)',
+        bg: 'hsl(210, 30%, 98%)',
+        accent: 'hsl(130, 70%, 45%)',
+        border: 'hsl(210, 30%, 90%)',
+        primary: 'hsl(210, 70%, 50%)',
+        surface: 'hsl(0, 0%, 100%)',
+        'text-primary': 'hsl(210, 30%, 15%)',
+        'text-secondary': 'hsl(210, 30%, 45%)',
       },
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+      borderRadius: {
+        'xs': '4px',
+        'sm': '4px',
+        'md': '8px',
+        'lg': '12px',
+        'xl': '16px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '20px',
+        'xxl': '24px',
       },
       boxShadow: {
-        'card': '0 2px 4px hsla(0, 0%, 0%, 0.1)',
-        'modal': '0 10px 30px hsla(220, 40%, 20%, 0.3)',
+        'card': '0 4px 12px hsla(210, 30%, 15%, 0.08)',
+        'dialog': '0 12px 32px hsla(210, 30%, 15%, 0.12)',
+      },
+      animation: {
+        'fade-in': 'fadeIn 300ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+        'slide-up': 'slideUp 300ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
       },
     },
   },
