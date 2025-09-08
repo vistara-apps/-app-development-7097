@@ -1,4 +1,4 @@
-import React from 'react'
+
 import AppShell from '../components/AppShell'
 import { useContacts } from '../contexts/ContactContext'
 import { useAuth } from '../contexts/AuthContext'

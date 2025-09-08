@@ -33,7 +33,7 @@ interface Sequence {
 }
 
 export default function Sequences() {
-  const { contacts } = useContacts()
+  const { contacts: _contacts } = useContacts()
   const { addToast } = useToast()
   
   const [sequences, setSequences] = useState<Sequence[]>([
@@ -71,7 +71,7 @@ export default function Sequences() {
   const [newSequence, setNewSequence] = useState({
     name: '',
     trigger: '',
-    steps: [{ id: '1', type: 'email' as const, delay: 0, content: '' }]
+    steps: [{ id: '1', type: 'email' as 'email' | 'wait', delay: 0, content: '' }]
   })
 
   const handleCreateSequence = (e: React.FormEvent) => {
@@ -115,7 +115,7 @@ export default function Sequences() {
   const addStep = () => {
     const newStep = { 
       id: Date.now().toString(), 
-      type: 'email' as const, 
+      type: 'email' as 'email' | 'wait', 
       delay: 0, 
       content: '' 
     }
@@ -125,7 +125,7 @@ export default function Sequences() {
     }))
   }
 
-  const updateStep = (index: number, field: string, value: any) => {
+  const updateStep = (index: number, field: keyof SequenceStep, value: any) => {
     setNewSequence(prev => ({
       ...prev,
       steps: prev.steps.map((step, i) => 
@@ -421,7 +421,7 @@ export default function Sequences() {
                             </label>
                             <select
                               value={step.type}
-                              onChange={(e) => updateStep(index, 'type', e.target.value)}
+                              onChange={(e) => updateStep(index, 'type', e.target.value as 'email' | 'wait')}
                               className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                             >
                               <option value="email">Email</option>

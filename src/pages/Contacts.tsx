@@ -12,7 +12,7 @@ import {
   Zap,
   Trash2,
   Edit,
-  Download,
+
   Mail
 } from 'lucide-react'
 
